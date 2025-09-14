@@ -1,15 +1,3 @@
-export interface Document {
-  id: string;
-  name: string;
-  description: string;
-  type: DocumentType;
-  fileUrl: string;
-  thumbnailUrl?: string;
-  size: number;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
 export enum DocumentType {
   PDF = 'pdf',
   IMAGE = 'image',
@@ -18,6 +6,60 @@ export enum DocumentType {
   SPREADSHEET = 'spreadsheet',
   TEXT = 'text',
   OTHER = 'other'
+}
+
+export interface Document {
+  id: string;
+  name: string;
+  description: string;
+  type: DocumentType;
+  fileUrl: string;
+  thumbnailUrl: string;
+  size: number;
+  createdAt: Date;
+  updatedAt: Date;
+  folderId?: string;
+  tags?: string[];
+  version?: number;
+  permissions?: DocumentPermissions;
+  sharedWith?: string[];
+  lastAccessedAt?: Date;
+  downloadCount?: number;
+}
+
+export interface Folder {
+  id: string;
+  name: string;
+  description?: string;
+  parentId?: string;
+  createdAt: Date;
+  updatedAt: Date;
+  color?: string;
+}
+
+export interface DocumentPermissions {
+  canView: boolean;
+  canEdit: boolean;
+  canDelete: boolean;
+  canShare: boolean;
+}
+
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: 'admin' | 'editor' | 'viewer';
+}
+
+export interface DocumentVersion {
+  id: string;
+  documentId: string;
+  version: number;
+  fileUrl: string;
+  size: number;
+  createdAt: Date;
+  createdBy: string;
+  changeLog?: string;
 }
 
 export interface DocumentContextType {

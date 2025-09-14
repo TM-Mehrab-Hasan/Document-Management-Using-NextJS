@@ -38,7 +38,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <footer className="bg-white border-t border-gray-200 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="text-center text-sm text-gray-500">
-            © 2024 Document Management System. Built with Next.js and TypeScript.
+            © 2025 Document Management System. Built with Next.js and TypeScript.
           </div>
         </div>
       </footer>
